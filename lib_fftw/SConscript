@@ -316,6 +316,9 @@ fftw_files = Split("""
 
 env.Append(CPPPATH=fftw_dirs)
 
+if env['IS_MACOSX']:
+    env.Append(CCFLAGS='-Wno-unused-but-set-variable')
+
 if env['IS_WINDOWS']:
     env.Append(CCFLAGS='-DCOMPILING_FFTW -DFFTW_DLL')
 

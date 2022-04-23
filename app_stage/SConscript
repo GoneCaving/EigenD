@@ -85,7 +85,7 @@ if env['IS_LINUX']:
     env.Append(LIBS=Split('asound X11 freetype Xext'))
 
 if env['IS_MACOSX']:
-    env.Append(CCFLAGS="-DNDEBUG")
+    env.Append(CCFLAGS="-DNDEBUG -Wno-unused-but-set-variable")
     env.Append(PI_HIRES=True)
 
 stage_files.extend(lo_files)    
