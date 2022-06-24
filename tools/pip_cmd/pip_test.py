@@ -325,10 +325,10 @@ def compile_module(module,specification,include_path=[]):
     code_file = 'testtmp_%s.cpp' % module
     extra = []
 
-    if sys.platform == 'darwin':
-        extra.append('/usr/lib/libstdc++.6.dylib')
+    # if sys.platform == 'darwin':
+    #     extra.append('/usr/lib/libstdc++.6.dylib')
 
-    ext = distutils.core.Extension(module,sources=[code_file],extra_objects=extra,extra_link_args=['-g'],extra_compile_args=['-g'])
+    ext = distutils.core.Extension(module,sources=[code_file],extra_objects=extra,extra_link_args=['-g'],extra_compile_args=['-g','-Wno-unused-function'])
     dist = distutils.dist.Distribution(dict(ext_modules=[ext]))
     bin_file = None
 
